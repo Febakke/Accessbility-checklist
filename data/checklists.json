@@ -1,0 +1,859 @@
+{
+  "id": "wcag-checklist-2024",
+  "title": "WCAG Tilgjengelighetstester",
+  "description": "Omfattende sjekkliste for testing av universell utforming",
+  "categories": [
+    {
+      "id": "automatic-tools",
+      "title": "Automatisk verktøy",
+      "description": "Tester som kan utføres med automatiske verktøy",
+      "items": [
+        {
+          "id": "alternative-tekster",
+          "title": "Alternative tekster til bilder, ikoner og illustrasjoner",
+          "description": "Test at alle bilder, ikoner og illustrasjoner har alternative tekster",
+          "wcagRefs": [
+            {
+              "id": "1.1.1",
+              "title": "Ikke-tekstlig innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "input-ledetekster",
+          "title": "Input elementer har en tilhørende label",
+          "description": "Test at alle input-elementer har tilknyttede ledetekster",
+          "wcagRefs": [
+            {
+              "id": "3.3.2",
+              "title": "Ledetekster eller instruksjoner",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "sprak-definert",
+          "title": "Det er definert hvilket språk siden er på",
+          "description": "Test at språk er korrekt definert i koden",
+          "wcagRefs": [
+            {
+              "id": "3.1.1",
+              "title": "Språk på siden",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ingen-auto-refresh",
+          "title": "Det finnes ingen automatisk refresh eller videresending på siden",
+          "description": "Test at siden ikke har automatisk oppdatering eller videresending",
+          "wcagRefs": [
+            {
+              "id": "2.2.1",
+              "title": "Justerbar hastighet",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ingen-auto-oppdatering",
+          "title": "Det er ingen innhold som oppdaterer seg automatisk",
+          "description": "Test at det ikke finnes innhold som oppdateres automatisk",
+          "wcagRefs": [
+            {
+              "id": "2.2.2",
+              "title": "Pause, stopp, skjul",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "overskrifter-innhold",
+          "title": "Det finnes ingen overskrifter eller tabelloverskrifter uten innhold",
+          "description": "Test at alle overskrifter har meningsfullt innhold",
+          "wcagRefs": [
+            {
+              "id": "2.4.6",
+              "title": "Overskrifter og ledetekster",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "tomme-knapper",
+          "title": "Det finnes ingen knapper uten innhold",
+          "description": "Test at alle knapper har beskrivende tekst eller aria-label",
+          "wcagRefs": [
+            {
+              "id": "4.1.2",
+              "title": "Navn, rolle, verdi",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "tomme-lenker",
+          "title": "Det finnes ingen lenker uten innhold",
+          "description": "Test at alle lenker har beskrivende tekst",
+          "wcagRefs": [
+            {
+              "id": "2.4.4",
+              "title": "Formål med lenke (i kontekst)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "kontraster",
+          "title": "Kontraster",
+          "description": "Test at alle elementer har tilstrekkelig kontrast mot bakgrunnen",
+          "wcagRefs": [
+            {
+              "id": "1.4.3",
+              "title": "Kontrast (minimum)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "nettsiden-tittel",
+          "title": "Nettsiden har en tittel attributt",
+          "description": "Test at siden har en beskrivende tittel",
+          "wcagRefs": [
+            {
+              "id": "2.4.2",
+              "title": "Sidetitler",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "keyboard",
+      "title": "Tastaturnavigasjon",
+      "description": "Tester for tastaturnavigasjon",
+      "items": [
+        {
+          "id": "tastatur-funksjonalitet",
+          "title": "Jeg når all funksjonalitet på siden med kun tastatur",
+          "description": "Test at alle funksjoner kan nås og brukes med tastatur",
+          "wcagRefs": [
+            {
+              "id": "2.1.1",
+              "title": "Tastatur",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "testen-folger",
+          "title": "Testen følger om noe som man kan trykke eller interagere med musepeker ikke er mulig å nå eller bruke med tastatur",
+          "description": "Test at alt som kan klikkes med mus også kan nås med tastatur",
+          "wcagRefs": [
+            {
+              "id": "2.1.1",
+              "title": "Tastatur",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "rekkefolge-mening",
+          "title": "Rekkefølgen gir mening",
+          "description": "Test at tabuleringsrekkefølgen er logisk og gir mening",
+          "wcagRefs": [
+            {
+              "id": "2.4.3",
+              "title": "Fokusrekkefølge",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ingen-tastaturfelle",
+          "title": "Du kan gå fra start til slutt uten å bli sittende fast",
+          "description": "Test at man kan navigere gjennom hele siden uten å møte tastaturfeller",
+          "wcagRefs": [
+            {
+              "id": "2.1.2",
+              "title": "Ingen tastaturfelle",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "synlig-fokusmarkor",
+          "title": "Alle elementer har en visuell markør som blir synlig når du elementet får tastaturfokus",
+          "description": "Test at fokusmarkør er synlig på alle interaktive elementer",
+          "wcagRefs": [
+            {
+              "id": "2.4.7",
+              "title": "Synlig fokus",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "fokusmarkor-kontrast",
+          "title": "Fokusmarkøren skal også ha god nok kontrast til bakgrunnen",
+          "description": "Test at fokusmarkøren har tilstrekkelig kontrast mot bakgrunnen",
+          "wcagRefs": [
+            {
+              "id": "1.4.11",
+              "title": "Kontrast for ikke-tekstlig innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "hoppe-over-blokker",
+          "title": "Man kan hoppe over meny/navigering og rett til hovedinnhold",
+          "description": "Test at det finnes mulighet for å hoppe over gjentakende innhold",
+          "wcagRefs": [
+            {
+              "id": "2.4.1",
+              "title": "Hoppe over blokker",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ingen-auto-fokus",
+          "title": "Ingen komponenter starter en automatisk kontekstendring når de får fokus",
+          "description": "Test at fokus ikke automatisk trigger endringer i innholdet",
+          "wcagRefs": [
+            {
+              "id": "3.2.1",
+              "title": "Fokus",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ingen-kontekstendring",
+          "title": "Ingen skjemakomponenter fører til kontekstendring om brukeren endrer verdien",
+          "description": "Test at endring av verdier i skjema ikke automatisk trigger store endringer",
+          "wcagRefs": [
+            {
+              "id": "3.2.2",
+              "title": "Inndata",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-input"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "hurtigtaster-tegn",
+          "title": "Det er ingen tastatursnarveier som består av kun et tegn",
+          "description": "Test at eventuelle hurtigtaster ikke består av enkelttegn",
+          "wcagRefs": [
+            {
+              "id": "2.1.4",
+              "title": "Hurtigtaster som består av ett tegn",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "konsekvent-navigasjon",
+          "title": "Navigasjon har lik rekkefølge på tvers av sider",
+          "description": "Test at navigasjonselementer presenteres i samme rekkefølge på alle sider",
+          "wcagRefs": [
+            {
+              "id": "3.2.3",
+              "title": "Konsekvent navigering",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "screenreader",
+      "title": "Skjermleser",
+      "description": "Tester for skjermleserkompatibilitet",
+      "items": [
+        {
+          "id": "overskrifter-landmerker",
+          "title": "Overskrifter og landmerker er beskrivende",
+          "description": "Test at overskrifter og landmerker gir mening",
+          "wcagRefs": [
+            {
+              "id": "2.4.6",
+              "title": "Overskrifter og ledetekster",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "tilgjengelig-navn",
+          "title": "Er det tilgjengelige navnet likt som det visuelle navnet?",
+          "description": "Test at det tilgjengelige navnet (som leses opp av skjermleser) er likt som det visuelle navnet",
+          "wcagRefs": [
+            {
+              "id": "2.5.3",
+              "title": "Ledetekst i navn",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "statusbeskjeder",
+          "title": "Statusbeskjeder blir lest opp",
+          "description": "Test at statusbeskjeder blir lest opp av skjermleser",
+          "wcagRefs": [
+            {
+              "id": "4.1.3",
+              "title": "Statusbeskjeder",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "rekkefolge-innhold",
+          "title": "Rekkefølgen på innholdet blir lest opp i samme rekkefølge som det er satt opp visuelt",
+          "description": "Test at rekkefølgen på innholdet som leses opp samsvarer med den visuelle rekkefølgen",
+          "wcagRefs": [
+            {
+              "id": "1.3.2",
+              "title": "Meningsfylt rekkefølge",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Video og lyd",
+      "description": "Tester for multimedia-innhold",
+      "items": [
+        {
+          "id": "video-tekstalternativ",
+          "title": "All video med lyd har tekstalternativ",
+          "description": "Test at all video med lyd har tekstalternativer",
+          "wcagRefs": [
+            {
+              "id": "1.2.1",
+              "title": "Bare lyd og video (forhåndsinnspilt)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "video-uten-lyd",
+          "title": "Video uten lyd har tekstbeskrivelse eller lydalternativv",
+          "description": "Test at video uten lyd har tekstbeskrivelse eller lydalternativ",
+          "wcagRefs": [
+            {
+              "id": "1.2.1",
+              "title": "Bare lyd og video (forhåndsinnspilt)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "video-teksting",
+          "title": "Forhåndsinnspilt lydinnhold har teksting",
+          "description": "Test at forhåndsinnspilt lydinnhold har teksting",
+          "wcagRefs": [
+            {
+              "id": "1.2.2",
+              "title": "Teksting (forhåndsinnspilt)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "lyd-kontroll",
+          "title": "Lyd som starter automatisk kan overstyres av brukeren",
+          "description": "Test at brukeren kan kontrollere lyd som starter automatisk",
+          "wcagRefs": [
+            {
+              "id": "1.4.2",
+              "title": "Styring av lyd",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-control"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "pause-stopp",
+          "title": "Det er mulig å pause, stoppe eller skjule innhold som beveger, blinker eller spilles av automatisk",
+          "description": "Test at brukeren kan kontrollere bevegelig eller blinkende innhold",
+          "wcagRefs": [
+            {
+              "id": "2.2.2",
+              "title": "Pause, stopp, skjul",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "contrast",
+      "title": "Kontraster",
+      "description": "Tester for fargekontraster",
+      "items": [
+        {
+          "id": "tekst-kontrast",
+          "title": "All stor tekst har god nok kontrast",
+          "description": "Test at all stor tekst har tilstrekkelig kontrast mot bakgrunnen",
+          "wcagRefs": [
+            {
+              "id": "1.4.3",
+              "title": "Kontrast (minimum)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "sma-kontrast",
+          "title": "Alle små (brødtekster) har god nok kontrast",
+          "description": "Test at all brødtekst har tilstrekkelig kontrast mot bakgrunnen",
+          "wcagRefs": [
+            {
+              "id": "1.4.3",
+              "title": "Kontrast (minimum)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "komponent-kontrast",
+          "title": "Tekst i komponent har god nok kontrast til bakgrunnen",
+          "description": "Test at tekst i komponenter har tilstrekkelig kontrast mot komponentens bakgrunn",
+          "wcagRefs": [
+            {
+              "id": "1.4.11",
+              "title": "Kontrast for ikke-tekstlig innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "element-kontrast",
+          "title": "Det som identifiserer elementet har høy nok kontrast",
+          "description": "Test at visuelle indikatorer som identifiserer elementer har tilstrekkelig kontrast",
+          "wcagRefs": [
+            {
+              "id": "1.4.11",
+              "title": "Kontrast for ikke-tekstlig innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "grafiske-elementer",
+          "title": "Ikke interaktive grafiske elementer",
+          "description": "Test at ikke-interaktive grafiske elementer har tilstrekkelig kontrast",
+          "wcagRefs": [
+            {
+              "id": "1.4.11",
+              "title": "Kontrast for ikke-tekstlig innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "zoom",
+      "title": "Zoom og tekststørrelse",
+      "description": "Tester for skalering og zoom",
+      "items": [
+        {
+          "id": "zoom-200",
+          "title": "Innhold blir ikke borte når jeg øker tekststørrelse med 200%",
+          "description": "Test at innhold ikke forsvinner ved 200% tekststørrelse",
+          "wcagRefs": [
+            {
+              "id": "1.4.4",
+              "title": "Endring av tekststørrelse",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "zoom-400",
+          "title": "Innhold blir ikke borte når jeg zoomer inn med 400%",
+          "description": "Test at innhold ikke forsvinner ved 400% zoom",
+          "wcagRefs": [
+            {
+              "id": "1.4.10",
+              "title": "Dynamisk tilpasning (Reflow)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "tekstavstand",
+          "title": "Innhold blir ikke borte når jeg endrer tekstlinjeavstand",
+          "description": "Test at innhold ikke forsvinner ved endring av tekstlinjeavstand",
+          "wcagRefs": [
+            {
+              "id": "1.4.12",
+              "title": "Tekstavstand",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "title": "Mobil",
+      "description": "Tester for mobilvisning",
+      "items": [
+        {
+          "id": "visningstilpasning",
+          "title": "Innhold er ikke låst til en visningsretning",
+          "description": "Test at innholdet ikke er låst til en bestemt visningsretning",
+          "wcagRefs": [
+            {
+              "id": "1.3.4",
+              "title": "Visningsretning",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/orientation"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "bevegelsesstyring",
+          "title": "Det er ingen funksjonalitet som styres av kun fysisk brukerinnput som ikke kan styres av elementer i GUI",
+          "description": "Test at all funksjonalitet kan styres via grensesnittelementer og ikke bare gjennom fysiske bevegelser",
+          "wcagRefs": [
+            {
+              "id": "2.5.4",
+              "title": "Bevegelsesaktivering",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "title": "Skjemaløsninger",
+      "description": "Tester for skjemaløsninger og validering",
+      "items": [
+        {
+          "id": "standardformat",
+          "title": "Alle standardformater er spesifisert i koden",
+          "description": "Test at alle standardformater (dato, telefon, etc.) er korrekt spesifisert i koden",
+          "wcagRefs": [
+            {
+              "id": "1.3.5",
+              "title": "Identifiser formål med inndata",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "feilmelding-identifikasjon",
+          "title": "Feilmeldingen viser hvor feilen har oppstått og gir en tekstlig beskrivelse av feilen",
+          "description": "Test at feilmeldinger tydelig viser hvor feilen er og forklarer hva som er feil",
+          "wcagRefs": [
+            {
+              "id": "3.3.1",
+              "title": "Identifikasjon av feil",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "feilmelding-forslag",
+          "title": "Vise feilmeldinger og gi forslag til hvordan feilen kan rettes",
+          "description": "Test at feilmeldinger gir konkrete forslag til hvordan feilen kan rettes",
+          "wcagRefs": [
+            {
+              "id": "3.3.3",
+              "title": "Forslag ved feil",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "feilmelding-juridisk",
+          "title": "Skjema som medfører juridiske forpliktelser er mulig å angre, kontrollere eller bekrefte før det sendes inn",
+          "description": "Test at skjema med juridiske konsekvenser kan kontrolleres og bekreftes før innsending",
+          "wcagRefs": [
+            {
+              "id": "3.3.4",
+              "title": "Forhindring av feil (juridiske feil, økonomiske feil, datafeil)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "skjemaelement-instruksjoner",
+          "title": "Skjemaelement er riktig identifisert med hjelp av instruksjoner eller ledetekster",
+          "description": "Test at alle skjemaelementer har tydelige instruksjoner eller ledetekster",
+          "wcagRefs": [
+            {
+              "id": "3.3.2",
+              "title": "Ledetekster eller instruksjoner",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "obligatoriske-felt",
+          "title": "Brukere er informert om hvilke felter som er obligatorisk",
+          "description": "Test at det er tydelig markert hvilke felt som må fylles ut",
+          "wcagRefs": [
+            {
+              "id": "3.3.2",
+              "title": "Ledetekster eller instruksjoner",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "pointer",
+      "title": "Pekerenhet",
+      "description": "Tester for bruk av pekerenhet",
+      "items": [
+        {
+          "id": "enkel-pekerinput",
+          "title": "Nettsiden kan brukes med enkel pekerinput",
+          "description": "Test at all funksjonalitet kan brukes med enkel pekerinput",
+          "wcagRefs": [
+            {
+              "id": "2.5.1",
+              "title": "Pekerbevegelse",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "forhindre-feilaktig-input",
+          "title": "Man kan forhindre uønsket og feilaktig input via mus eller berøringsskjerm",
+          "description": "Test at det er mulig å forhindre eller angre utilsiktede handlinger via pekerenhet",
+          "wcagRefs": [
+            {
+              "id": "2.5.2",
+              "title": "Pekeravbrytelse",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    },
+    {
+      "id": "manual",
+      "title": "Manuelle tester",
+      "description": "Andre manuelle tester",
+      "items": [
+        {
+          "id": "ikke-bare-visuelle",
+          "title": "Det blir ikke brukt kun visuelle former eller lyder for å formidle noe til brukeren",
+          "description": "Test at informasjon ikke bare formidles gjennom visuelle former eller lyder",
+          "wcagRefs": [
+            {
+              "id": "1.3.3",
+              "title": "Sensoriske egenskaper",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ikke-bare-farge",
+          "title": "Det blir ikke brukt kun farge for å formidle noe til brukeren",
+          "description": "Test at informasjon ikke bare formidles gjennom farger",
+          "wcagRefs": [
+            {
+              "id": "1.4.1",
+              "title": "Bruk av farge",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "viktige-bilder",
+          "title": "Vi har ingen bilder av viktige tekster",
+          "description": "Test at viktig tekstinnhold ikke bare presenteres som bilder",
+          "wcagRefs": [
+            {
+              "id": "1.4.5",
+              "title": "Bilder av tekst",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "ekstra-innhold",
+          "title": "Brukeren har kontroll over ekstra innhold som blir tilgjengelig ved mouseover eller tastaturfokus",
+          "description": "Test at brukeren kan kontrollere ekstra innhold som vises ved hover eller fokus",
+          "wcagRefs": [
+            {
+              "id": "1.4.13",
+              "title": "Pekerfølsomt innhold eller innhold ved tastaturfokus",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "blinking",
+          "title": "Vi har ikke noe innhold som blinker mer enn tre ganger i sekundet",
+          "description": "Test at ingen elementer blinker mer enn tre ganger per sekund",
+          "wcagRefs": [
+            {
+              "id": "2.3.1",
+              "title": "Terskelverdi på maksimalt tre glimt",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "sidetitler",
+          "title": "Alle sider har en beskrivende tittel",
+          "description": "Test at alle sider har unike og beskrivende titler",
+          "wcagRefs": [
+            {
+              "id": "2.4.2",
+              "title": "Sidetitler",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "sprak-deler",
+          "title": "Hvis det er deler av innholdet som er på et annet språk, så er dette markert i koden",
+          "description": "Test at språkendringer er korrekt markert i koden",
+          "wcagRefs": [
+            {
+              "id": "3.1.2",
+              "title": "Språk på deler av innhold",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "konsekvent-funksjonalitet",
+          "title": "Funksjonalitet som repeterer seg over flere sider er utformet likt",
+          "description": "Test at gjentakende funksjonalitet er konsekvent implementert",
+          "wcagRefs": [
+            {
+              "id": "3.2.4",
+              "title": "Konsekvent identifikasjon",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "kodedeling",
+          "title": "Ingen sider har store kodedefeil",
+          "description": "Test at sidene ikke har alvorlige kodevalideringsfeil",
+          "wcagRefs": [
+            {
+              "id": "4.1.1",
+              "title": "Parsing (oppdeling)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "navn-rolle",
+          "title": "Alle komponenter har navn og rolle bestemt i koden",
+          "description": "Test at alle komponenter har korrekt definerte navn og roller",
+          "wcagRefs": [
+            {
+              "id": "4.1.2",
+              "title": "Navn, rolle, verdi",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "relasjoner",
+          "title": "De forskjellige seksjonene på siden er semantisk beskrevet i koden",
+          "description": "Test at sidens struktur er korrekt definert med semantiske elementer",
+          "wcagRefs": [
+            {
+              "id": "1.3.1",
+              "title": "Informasjon og relasjoner",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships"
+            }
+          ],
+          "howTo": ""
+        },
+        {
+          "id": "flere-mater",
+          "title": "Det er flere enn én måte å navigere seg rundt på nettsiden",
+          "description": "Test at det finnes alternative navigasjonsmetoder",
+          "wcagRefs": [
+            {
+              "id": "2.4.5",
+              "title": "Flere måter",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways"
+            }
+          ],
+          "howTo": ""
+        }
+      ]
+    }
+  ],
+  "createdAt": "2024-04-14T12:00:00Z",
+  "updatedAt": "2024-04-14T12:00:00Z"
+} 

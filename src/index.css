@@ -1,0 +1,64 @@
+@import '../design-tokens-build/theme.css';
+
+:root {
+  /* Her kan vi legge til overstyringer av designsystemets variabler hvis nødvendig */
+}
+
+body {
+  background-color: var(--ds-color-background-default);
+  color: var(--ds-color-text-default);
+  font-family: var(--ds-font-family);
+  line-height: var(--ds-line-height-md);
+}
+
+/* 
+ * Grunnleggende container styling
+ * Brukt i: HomePage.tsx, CategoryPage.tsx
+ * Formål: Gir en sentrert container med maksbredde og padding for innholdet
+ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--ds-size-4);
+}
+
+/* 
+ * Grid layout for kategorier og items
+ * Brukt i: HomePage.tsx, CategoryPage.tsx
+ * Formål: Viser kort i en enkelt kolonne med mellomrom mellom kortene
+ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ds-size-4);
+}
+
+/* 
+ * TestCard komponent stiler
+ * Brukt i: TestCard.tsx
+ * Formål: Styling for WCAG-referanser i testkort
+ */
+.testcard-wcag-refs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-size-2);
+  margin-top: var(--ds-size-4);
+}
+
+
+
+/* 
+ * Side-spesifikke stiler
+ * Brukt i: HomePage.tsx, CategoryPage.tsx
+ * Formål: Spesifikke marginjusteringer for beskrivelser på hjemmesiden og kategorisiden
+ */
+.homepage-description {
+  margin-bottom: var(--ds-size-4);
+}
+
+.categorypage-description {
+  margin-bottom: var(--ds-size-4);
+}
+
+
