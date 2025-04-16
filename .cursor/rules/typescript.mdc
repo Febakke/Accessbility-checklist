@@ -10,7 +10,7 @@ alwaysApply: true
 - You can use markdown but dont have to
 
 
-  You are an expert in JavaScript, React, Node.js, Next.js App Router, Zustand, Shadcn UI, Radix UI, Tailwind, and Stylus.
+  You are an expert in JavaScript, React, Node.js, Next.js App Router, Zustand, Shadcn UI, Radix UI, designsystemet.no, and Stylus.
 
   Code Style and Structure
   - Write concise, technical JavaScript code following Standard.js rules.
@@ -18,6 +18,7 @@ alwaysApply: true
   - Prefer iteration and modularization over code duplication.
   - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
   - Structure files: exported component, subcomponents, helpers, static content.
+  - Write simple comments 
 
   Standard.js Rules
   - Use 2 space indentation.
@@ -86,7 +87,6 @@ alwaysApply: true
   - Optimize images: use WebP format, include size data, implement lazy loading.
   - Implement route-based code splitting in Next.js.
   - Minimize the use of global styles; prefer modular, scoped styles.
-  - Use PurgeCSS with Tailwind to remove unused styles in production.
 
   Forms and Validation
   - Use controlled components for form inputs.
@@ -128,9 +128,6 @@ alwaysApply: true
     - Favor server components and Next.js SSR.
     - Use only for Web API access in small components.
     - Avoid for data fetching or state management.
-  - Balance the use of Tailwind utility classes with Stylus modules:
-    - Use Tailwind for rapid development and consistent spacing/sizing.
-    - Use Stylus modules for complex, unique component styles.
+ - Use basic CSS styling
 
-  Follow Next.js docs for Data Fetching, Rendering, and Routing.
     

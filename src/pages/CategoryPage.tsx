@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import type { Category } from '../types/checklist'
 import checklistData from '../../data/checklists.json'
 import { TestCard } from '../components/ui/TestCard'
-import { Heading, Paragraph, Button } from '@digdir/designsystemet-react'
+import { Heading, Paragraph, Button, Link } from '@digdir/designsystemet-react'
 
 const checklist = checklistData as {
   id: string
@@ -22,13 +22,12 @@ export default function CategoryPage() {
 
   return (
     <div className="container">
-      <Button 
-        variant="tertiary" 
-        onClick={() => navigate(-1)}
-        className="mb-4"
+      <Link  
+        href="/"
+        className="backlink"
       >
         Tilbake
-      </Button>
+      </Link>
       
       <Heading data-size="xl" className="mb-4">{category.title}</Heading>
       <Paragraph className="categorypage-description">{category.description}</Paragraph>

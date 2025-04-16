@@ -1,7 +1,7 @@
 {
   "id": "wcag-checklist-2024",
   "title": "WCAG Tilgjengelighetstester",
-  "description": "Omfattende sjekkliste for testing av universell utforming",
+  "description": "En enkel POC for å gjøre dagens testrutiner fra Excel til en webbasert løsning.",
   "categories": [
     {
       "id": "automatic-tools",
@@ -148,7 +148,7 @@
         {
           "id": "tastatur-funksjonalitet",
           "title": "Jeg når all funksjonalitet på siden med kun tastatur",
-          "description": "Test at alle funksjoner kan nås og brukes med tastatur",
+          "description": "Testen feiler om noe som man kan trykke eller interagere med musepeker ikke er mulig å nå eller bruke med tastatur.",
           "wcagRefs": [
             {
               "id": "2.1.1",
@@ -158,23 +158,11 @@
           ],
           "howTo": ""
         },
-        {
-          "id": "testen-folger",
-          "title": "Testen følger om noe som man kan trykke eller interagere med musepeker ikke er mulig å nå eller bruke med tastatur",
-          "description": "Test at alt som kan klikkes med mus også kan nås med tastatur",
-          "wcagRefs": [
-            {
-              "id": "2.1.1",
-              "title": "Tastatur",
-              "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard"
-            }
-          ],
-          "howTo": ""
-        },
+        
         {
           "id": "rekkefolge-mening",
           "title": "Rekkefølgen gir mening",
-          "description": "Test at tabuleringsrekkefølgen er logisk og gir mening",
+          "description": "Sekvensen elementer får fokus i med tastaturnavigasjon er lik den visuelle.",
           "wcagRefs": [
             {
               "id": "2.4.3",
@@ -187,7 +175,7 @@
         {
           "id": "ingen-tastaturfelle",
           "title": "Du kan gå fra start til slutt uten å bli sittende fast",
-          "description": "Test at man kan navigere gjennom hele siden uten å møte tastaturfeller",
+          "description": "Det er ingen tastaturfeller som gjør at brukeren ikke kommer seg ut uten å bruke andre hjelpemidler enn tastatur. Husk å teste på tooltips, menyer og andre komponenter som streker seg utover \"vanlig\" html funksjonalitet.",
           "wcagRefs": [
             {
               "id": "2.1.2",
@@ -200,25 +188,17 @@
         {
           "id": "synlig-fokusmarkor",
           "title": "Alle elementer har en visuell markør som blir synlig når du elementet får tastaturfokus",
-          "description": "Test at fokusmarkør er synlig på alle interaktive elementer",
+          "description": "Testen feiler om du ikke ser hvilket element som har fokus. Fokusmarkøren skal også ha 3:1 kontrast til bakgrunnen.",
           "wcagRefs": [
             {
               "id": "2.4.7",
               "title": "Synlig fokus",
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible"
-            }
-          ],
-          "howTo": ""
-        },
-        {
-          "id": "fokusmarkor-kontrast",
-          "title": "Fokusmarkøren skal også ha god nok kontrast til bakgrunnen",
-          "description": "Test at fokusmarkøren har tilstrekkelig kontrast mot bakgrunnen",
-          "wcagRefs": [
+            },
             {
               "id": "1.4.11",
               "title": "Kontrast for ikke-tekstlig innhold",
-              "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced"
+              "url": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
             }
           ],
           "howTo": ""
@@ -226,7 +206,7 @@
         {
           "id": "hoppe-over-blokker",
           "title": "Man kan hoppe over meny/navigering og rett til hovedinnhold",
-          "description": "Test at det finnes mulighet for å hoppe over gjentakende innhold",
+          "description": "Om man har gjentakende menyer eller navigering så vil det være unødvendig å bla gjennom dette vær gang man kommer til en ny side. Denne feiler om man har knapper som gjentar seg og det ikke er en \"hopp til hovedinnhold\" knapp.",
           "wcagRefs": [
             {
               "id": "2.4.1",
@@ -239,21 +219,13 @@
         {
           "id": "ingen-auto-fokus",
           "title": "Ingen komponenter starter en automatisk kontekstendring når de får fokus",
-          "description": "Test at fokus ikke automatisk trigger endringer i innholdet",
+          "description": "Eksempler på kontekstendringer:\n\n1. Et skjema blir sendt inn når siste komponent får fokus\n2. Et nytt vindu åpnes når en komponent får fokus\n3. Fokus blir flyttet til et annet sted på siden når man trykker eller navigerer til et sted på siden.\n\n**Test også** om det skjer kontekstendringer når brukeren fyller ut input på skjemakomponenter.",
           "wcagRefs": [
             {
               "id": "3.2.1",
               "title": "Fokus",
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus"
-            }
-          ],
-          "howTo": ""
-        },
-        {
-          "id": "ingen-kontekstendring",
-          "title": "Ingen skjemakomponenter fører til kontekstendring om brukeren endrer verdien",
-          "description": "Test at endring av verdier i skjema ikke automatisk trigger store endringer",
-          "wcagRefs": [
+            },
             {
               "id": "3.2.2",
               "title": "Inndata",
@@ -298,7 +270,7 @@
         {
           "id": "overskrifter-landmerker",
           "title": "Overskrifter og landmerker er beskrivende",
-          "description": "Test at overskrifter og landmerker gir mening",
+          "description": "Dette er et krav som kommer alle til gode, og skjermleser kan være en god måte å teste at denne informasjonen gir mening i konteksten. ",
           "wcagRefs": [
             {
               "id": "2.4.6",
@@ -311,7 +283,7 @@
         {
           "id": "tilgjengelig-navn",
           "title": "Er det tilgjengelige navnet likt som det visuelle navnet?",
-          "description": "Test at det tilgjengelige navnet (som leses opp av skjermleser) er likt som det visuelle navnet",
+          "description": "Sjekk at det som blir lest opp er likt det som står visuelt, eller at det starter med de samme ordene. Dette er mest til hjelp for de som bruker stemmen til å navigere. ",
           "wcagRefs": [
             {
               "id": "2.5.3",
@@ -324,7 +296,7 @@
         {
           "id": "statusbeskjeder",
           "title": "Statusbeskjeder blir lest opp",
-          "description": "Test at statusbeskjeder blir lest opp av skjermleser",
+          "description": "Sjekk om du har noe som kan defineres som statusbeskjeder på siden din. Info om dette på linken under. Test deretter om disse blir lest opp av skjemleser når de blir trigget. Et godt eksempel er en alert som dukker opp etter at siden er lastet, eller søkeresultater.",
           "wcagRefs": [
             {
               "id": "4.1.3",

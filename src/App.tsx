@@ -19,7 +19,7 @@ import CategoryPage from './pages/CategoryPage'
 
 function App() {
   useEffect(() => {
-    document.body.setAttribute('data-color-scheme', 'light')
+    document.body.setAttribute('data-color-scheme', 'dark')
     document.body.setAttribute('data-typography', 'primary')
     document.body.setAttribute('data-color', 'neutral')
 

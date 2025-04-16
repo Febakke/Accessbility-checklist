@@ -11,6 +11,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
     <Card 
       asChild 
       data-color="neutral"
+      variant="tinted"
     >
       <Link to={`/category/${category.id}`}>
         <Card.Block>

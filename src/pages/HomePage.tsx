@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Heading, Paragraph } from '@digdir/designsystemet-react'
+import { Heading } from '@digdir/designsystemet-react'
 import checklistData from '../../data/checklists.json'
 import { CategoryCard } from '../components/ui/CategoryCard'
+import { MarkdownContent } from '../components/ui/MarkdownContent'
 
 function HomePage() {
   const [checklist, setChecklist] = useState(checklistData)
@@ -11,9 +12,9 @@ function HomePage() {
       <Heading level={1} data-size="xl">
         {checklist.title}
       </Heading>
-      <Paragraph data-size="lg" className="homepage-description">
-        {checklist.description}
-      </Paragraph>
+      <div className="homepage-description">
+        <MarkdownContent size="large">{checklist.description}</MarkdownContent>
+      </div>
       
       <div className="grid">
         {checklist.categories.map((category) => (
