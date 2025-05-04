@@ -11,7 +11,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
     <Card 
       asChild 
       data-color="neutral"
-      variant="tinted"
+      variant="default"
     >
       <Link to={`/category/${category.id}`}>
         <Card.Block>
@@ -21,7 +21,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
           <Paragraph data-size="sm">
             {category.description}
           </Paragraph>
-          <Tag data-color='neutral' data-color-scheme='light'>
+          <Tag data-color='accent'>
             {category.items.length} tester
           </Tag>
         </Card.Block>

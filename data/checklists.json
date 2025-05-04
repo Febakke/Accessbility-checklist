@@ -143,7 +143,7 @@
     {
       "id": "keyboard",
       "title": "Tastaturnavigasjon",
-      "description": "Tester for tastaturnavigasjon",
+      "description": "I disse testene skal vi kun bruke tastatur til å navigere rundt på siden.",
       "items": [
         {
           "id": "tastatur-funksjonalitet",
@@ -236,7 +236,7 @@
         },
         {
           "id": "hurtigtaster-tegn",
-          "title": "Det er ingen tastatursnarveier som består av kun et tegn",
+          "title": "Enten fjern eller gi brukeren muligheten til å slå av disse snarveiene. ",
           "description": "Test at eventuelle hurtigtaster ikke består av enkelttegn",
           "wcagRefs": [
             {
@@ -250,7 +250,7 @@
         {
           "id": "konsekvent-navigasjon",
           "title": "Navigasjon har lik rekkefølge på tvers av sider",
-          "description": "Test at navigasjonselementer presenteres i samme rekkefølge på alle sider",
+          "description": "Sjekk at ikke hovednavigasjonen endrer seg fra side til side. Den skal være plassert på samme sted og ha lik rekkefølge.",
           "wcagRefs": [
             {
               "id": "3.2.3",
@@ -265,12 +265,12 @@
     {
       "id": "screenreader",
       "title": "Skjermleser",
-      "description": "Tester for skjermleserkompatibilitet",
+      "description": "Selv om du ikke er en ekspertbruker så vil det ikke si at det er unødvendig på teste med skjermleser. Du kan avdekke helt åpenbare feil med å kjøre gjennom siden din med skjermleser. På Mac kan du bruke allerede installerte VoiceOver (Lenke til dette) og på Windows er JAWS (Betalt) eller NVDA (Gratis) som er de mest brukte verktøyene. ",
       "items": [
         {
           "id": "overskrifter-landmerker",
           "title": "Overskrifter og landmerker er beskrivende",
-          "description": "Dette er et krav som kommer alle til gode, og skjermleser kan være en god måte å teste at denne informasjonen gir mening i konteksten. ",
+          "description": "Bruk skjermleser til å kvalitetsikre overskrifter og labels på siden. Du sjekker at overskrifter beskriver formålet med innholdet og at ledetekster beskriver formålet med input komponenten den er koblet til.",
           "wcagRefs": [
             {
               "id": "2.4.6",
@@ -283,7 +283,7 @@
         {
           "id": "tilgjengelig-navn",
           "title": "Er det tilgjengelige navnet likt som det visuelle navnet?",
-          "description": "Sjekk at det som blir lest opp er likt det som står visuelt, eller at det starter med de samme ordene. Dette er mest til hjelp for de som bruker stemmen til å navigere. ",
+          "description": "For komponenter, sjekk at teksten som blir lest opp er lik teksten som vises visuelt. Dette må være likt for at stemmekontroll skal fungere som forventet. Og grunnen til at skjermleser er en god måte å teste på, er fordi den vil lese opp det tilgjengelige navnet. Om navnet er ulikt er det kun godkjent om det tilgjengelige navnet starter med den samme teksten som vises visuelt.",
           "wcagRefs": [
             {
               "id": "2.5.3",
@@ -296,7 +296,7 @@
         {
           "id": "statusbeskjeder",
           "title": "Statusbeskjeder blir lest opp",
-          "description": "Sjekk om du har noe som kan defineres som statusbeskjeder på siden din. Info om dette på linken under. Test deretter om disse blir lest opp av skjemleser når de blir trigget. Et godt eksempel er en alert som dukker opp etter at siden er lastet, eller søkeresultater.",
+          "description": "Først må du sjekke om du har funksjonalitet som kan defineres som statusbeskjeder. [UUTilsynets artikkel om 4.1.3](https://www.uutilsynet.no/wcag-standarden/413-statusbeskjeder-niva-aa/152) har en god oversikt over ulike scenarior. Om du har noe som kan defineres som statusbeskjeder, test om disse blir lest opp av skjemleser når de blir trigget.",
           "wcagRefs": [
             {
               "id": "4.1.3",
@@ -309,7 +309,7 @@
         {
           "id": "rekkefolge-innhold",
           "title": "Rekkefølgen på innholdet blir lest opp i samme rekkefølge som det er satt opp visuelt",
-          "description": "Test at rekkefølgen på innholdet som leses opp samsvarer med den visuelle rekkefølgen",
+          "description": "Dette kravet kan ligne på 2.4.3, men skiller seg ut ved at det handler om innholdet og ikke fokusrekkefølgen. Med skjermleser kan du teste dette ved å lese opp siden med å gå fra element til element og sjekke at innholdet blir lest opp i samme rekkefølge som det er satt opp visuelt. En annen metode er å skru av CSS og se at innholdet fortsatt er i riktig rekkefølge.",
           "wcagRefs": [
             {
               "id": "1.3.2",
