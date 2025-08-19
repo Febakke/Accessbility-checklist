@@ -16,6 +16,7 @@ import './index.css'
 
 import HomePage from './pages/HomePage'
 import CategoryPage from './pages/CategoryPage'
+import SummaryPage from './pages/SummaryPage'
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:id" element={<CategoryPage />} />
+          <Route path="/summary" element={<SummaryPage />} />
         </Routes>
       </div>
     </Router>

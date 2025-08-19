@@ -3,6 +3,7 @@ import type { Category } from '../types/checklist'
 import checklistData from '../../data/checklists.json'
 import { TestCard } from '../components/ui/TestCard'
 import { Heading, Paragraph, Button, Link } from '@digdir/designsystemet-react'
+import { useTestStore } from '../stores/testStore'
 
 const checklist = checklistData as {
   id: string
@@ -14,6 +15,7 @@ const checklist = checklistData as {
 export default function CategoryPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { results } = useTestStore()
   const category = checklist.categories.find((cat) => cat.id === id)
 
   if (!category) {
@@ -39,6 +41,12 @@ export default function CategoryPage() {
             test={item}
           />
         ))}
+      </div>
+      
+      <div className="category-actions">
+        <Button onClick={() => navigate('/summary')}>
+          Se oppsummering
+        </Button>
       </div>
     </div>
   )

@@ -4,6 +4,13 @@ export interface WcagRef {
   url: string
 }
 
+export interface TestResult {
+  testId: string
+  status: 'no-issues' | 'found-issues'
+  description?: string
+  timestamp: string
+}
+
 export interface ChecklistItem {
   id: string
   title: string
@@ -26,4 +33,10 @@ export interface Checklist {
   title: string
   description: string
   categories: Category[]
+}
+
+export interface TestSession {
+  id: string
+  createdAt: string
+  results: TestResult[]
 } 

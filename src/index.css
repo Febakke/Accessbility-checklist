@@ -63,4 +63,89 @@ body {
   margin-bottom: var(--ds-size-4);
 }
 
+/* 
+ * TestCard actions styling
+ * Brukt i: TestCard.tsx
+ * Formål: Styling for valgknapper og beskrivelsesfelt
+ */
+.testcard-actions {
+  margin-top: var(--ds-size-4);
+  padding-top: var(--ds-size-4);
+  border-top: 1px solid var(--ds-color-border-default);
+}
+
+
+
+
+
+.testcard-actions div {
+  margin-bottom: var(--ds-size-2);
+}
+
+
+
+.testcard-actions label {
+  cursor: pointer;
+}
+
+.testcard-description {
+  margin-top: var(--ds-size-4);
+}
+
+.testcard-description label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--ds-size-2);
+}
+
+.testcard-description textarea {
+  width: 100%;
+  padding: var(--ds-size-2);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-border-radius-sm);
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* 
+ * Category actions styling
+ * Brukt i: CategoryPage.tsx
+ * Formål: Styling for knapper på kategorisiden
+ */
+.category-actions {
+  margin-top: var(--ds-size-6);
+  text-align: center;
+}
+
+/* 
+ * Summary page styling
+ * Brukt i: SummaryPage.tsx
+ * Formål: Styling for oppsummeringssiden
+ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ds-size-4);
+  margin-bottom: var(--ds-size-6);
+}
+
+.status-text {
+  margin-top: var(--ds-size-2);
+}
+
+.summary-actions {
+  text-align: center;
+  margin-top: var(--ds-size-6);
+}
+
+/* 
+ * Homepage actions styling
+ * Brukt i: HomePage.tsx
+ * Formål: Styling for knapper på hjemmesiden
+ */
+.homepage-actions {
+  text-align: center;
+  margin-top: var(--ds-size-6);
+}
+
 

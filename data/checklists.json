@@ -19,7 +19,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser alle img-elementer på siden\n2. Sjekk at hvert bilde har enten alt-attributt eller aria-label\n3. For meningsbærende bilder: alt-teksten skal gi samme informasjon som bildet\n4. For dekorative bilder: bruk alt=\"\" eller role=\"presentation\"\n5. For komplekse bilder: sørg for at det finnes både kort og lang beskrivelse\n6. Test med skjermleser at alternative tekster leses opp korrekt"
         },
         {
           "id": "input-ledetekster",
@@ -32,7 +32,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser alle input, select, textarea og andre skjemaelementer\n2. Sjekk at hvert element har enten:\n   - En tilknyttet label-element med for-attributt\n   - aria-label eller aria-labelledby\n   - title-attributt (som supplement)\n3. Verifiser at label-teksten beskriver formålet med input-elementet\n4. Test med skjermleser at ledeteksten leses opp når elementet får fokus\n5. Sjekk at placeholder-tekst ikke brukes som eneste ledetekst"
         },
         {
           "id": "sprak-definert",
@@ -45,7 +45,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser html-elementet på siden\n2. Sjekk at lang-attributtet er satt til riktig språkkode (f.eks. lang=\"nb\" for norsk bokmål)\n3. Verifiser at språkkoden følger ISO 639-1 standard\n4. Test med skjermleser at riktig språk leses opp\n5. Sjekk at språkkoden er konsistent på alle sider"
         },
         {
           "id": "ingen-auto-refresh",
@@ -58,7 +58,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Sjekk om siden har meta refresh-tag i head-seksjonen\n2. Inspiser JavaScript-kode for automatisk redirect eller refresh\n3. Test at siden ikke automatisk videresender til andre sider\n4. Verifiser at eventuelle tidsbegrensninger kan justeres av brukeren\n5. Sjekk at brukeren får tilstrekkelig tid til å lese innhold"
         },
         {
           "id": "ingen-auto-oppdatering",
@@ -71,7 +71,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser siden for bevegelig, blinkende eller rullende innhold\n2. Sjekk om det finnes karuseller eller slideshows som skifter automatisk\n3. Verifiser at brukeren kan pause, stoppe eller skjule slikt innhold\n4. Test at innhold ikke starter automatisk uten brukerinteraksjon\n5. Sjekk at eventuelle animasjoner kan deaktiveres"
         },
         {
           "id": "overskrifter-innhold",
@@ -156,7 +156,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger gjennom hele siden kun med Tab-tasten\n2. Sjekk at alle klikkbare elementer kan nås med tastatur\n3. Test at alle dropdown-meny, modaler og popup-vinduer kan åpnes/lukkes\n4. Verifiser at alle skjemaelementer kan fylles ut og sendes inn\n5. Test at alle funksjoner som krever museklikk også fungerer med Enter/Space\n6. Sjekk at ingen funksjonalitet er låst til musebruk"
         },
         
         {
@@ -170,7 +170,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger gjennom siden med Tab-tasten fra topp til bunn\n2. Sjekk at fokusrekkefølgen følger den logiske leseretningen\n3. Verifiser at fokus ikke hopper tilfeldig mellom elementer\n4. Test at fokus ikke går til skjulte eller utilgjengelige elementer\n5. Sjekk at tabindex-attributter ikke skaper forvirrende rekkefølge\n6. Verifiser at fokusrekkefølgen er konsistent på tvers av sider"
         },
         {
           "id": "ingen-tastaturfelle",
@@ -183,7 +183,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger til alle interaktive elementer med Tab-tasten\n2. Test at du kan komme deg ut av alle modaler, dropdown-meny og popup-vinduer\n3. Verifiser at Escape-tasten fungerer for å lukke overlappende innhold\n4. Sjekk at du ikke blir låst inne i karuseller eller slideshows\n5. Test at alle custom komponenter kan navigeres ut av\n6. Verifiser at ingen JavaScript-kode fanger opp og blokkerer tastaturinput"
         },
         {
           "id": "synlig-fokusmarkor",
@@ -201,7 +201,7 @@
               "url": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger gjennom siden med Tab-tasten\n2. Sjekk at hvert element som får fokus har en tydelig visuell indikator\n3. Verifiser at fokusmarkøren har minst 3:1 kontrast mot bakgrunnen\n4. Test at fokusmarkøren ikke er skjult av CSS (outline: none)\n5. Sjekk at custom fokusmarkører er tilstrekkelig synlige\n6. Verifiser at fokusmarkøren fungerer på alle interaktive elementer"
         },
         {
           "id": "hoppe-over-blokker",
@@ -258,7 +258,20 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger mellom ulike sider på nettstedet\n2. Sjekk at hovednavigasjonen har samme plassering på alle sider\n3. Verifiser at navigasjonsmeny har samme rekkefølge\n4. Test at navigasjonslenker har samme navn og funksjonalitet\n5. Sjekk at navigasjonen ikke endrer seg avhengig av kontekst\n6. Verifiser at navigasjonen er konsistent på tvers av alle sider"
+        },
+        {
+          "id": "fokus-kontekstendring",
+          "title": "Ingen automatisk kontekstendring ved fokus",
+          "description": "Test at ingen komponenter starter automatisk kontekstendring når de får fokus",
+          "wcagRefs": [
+            {
+              "id": "3.2.1",
+              "title": "Fokus",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus"
+            }
+          ],
+          "howTo": "1. Naviger til alle interaktive elementer med Tab-tasten\n2. Sjekk at ingen elementer automatisk endrer kontekst når de får fokus\n3. Verifiser at nye vinduer ikke åpnes automatisk ved fokus\n4. Test at skjemaer ikke sendes inn automatisk ved fokus\n5. Sjekk at fokus ikke flyttes automatisk til andre elementer\n6. Verifiser at ingen popup-vinduer eller modaler åpnes ved fokus"
         }
       ]
     },
@@ -278,7 +291,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Aktiver skjermleser (VoiceOver på Mac, NVDA på Windows)\n2. Naviger gjennom overskriftene med skjermleserens overskriftsnavigasjon\n3. Sjekk at hver overskrift beskriver innholdet som følger\n4. Verifiser at ledetekster for skjemaelementer er beskrivende\n5. Test at overskrifter ikke er generiske (som \"Overskrift\" eller \"Tittel\")\n6. Sjekk at overskriftsstrukturen er logisk (h1, h2, h3, etc.)"
         },
         {
           "id": "tilgjengelig-navn",
@@ -337,7 +350,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Identifiser alle videoer på siden som inneholder lyd\n2. Sjekk at hver video har enten:\n   - Teksting (captions) som beskriver all tale og lyder\n   - En tekstbeskrivelse som dekker samme informasjon\n   - En transkripsjon av innholdet\n3. Verifiser at tekstingen er synkronisert med videoen\n4. Test at tekstingen kan aktiveres/deaktiveres\n5. Sjekk at tekstingen er lesbar og har god kontrast"
         },
         {
           "id": "video-uten-lyd",
@@ -389,7 +402,20 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Identifiser all bevegelig, blinkende eller rullende innhold\n2. Sjekk at brukeren kan pause, stoppe eller skjule slikt innhold\n3. Verifiser at kontroller er synlige og tilgjengelige\n4. Test at innhold ikke starter automatisk uten brukerinteraksjon\n5. Sjekk at kontroller fungerer med tastatur\n6. Verifiser at innhold kan deaktiveres permanent"
+        },
+        {
+          "id": "video-synstolking",
+          "title": "Forhåndsinnspilt video har synstolking",
+          "description": "Test at videoer har synstolking for døve og hørselshemmede",
+          "wcagRefs": [
+            {
+              "id": "1.2.5",
+              "title": "Synstolking (forhåndsinnspilt)",
+              "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded"
+            }
+          ],
+          "howTo": "1. Identifiser alle forhåndsinnspilte videoer på siden\n2. Sjekk at hver video har synstolking (audio description)\n3. Verifiser at synstolkingen beskriver viktige visuelle elementer\n4. Test at synstolkingen kan aktiveres/deaktiveres\n5. Sjekk at synstolkingen er synkronisert med videoen\n6. Verifiser at synstolkingen er av god kvalitet og forståelig"
         }
       ]
     },
@@ -409,7 +435,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Bruk et kontrastverktøy (som WebAIM Contrast Checker)\n2. Test alle overskrifter (h1, h2, h3, etc.) mot bakgrunnen\n3. Verifiser at stor tekst (18pt+) har minst 3:1 kontrastforhold\n4. Sjekk at tekst på farget bakgrunn har tilstrekkelig kontrast\n5. Test kontrasten i alle tilstander (normal, hover, focus)\n6. Verifiser at kontrasten fungerer i både lys og mørk modus"
         },
         {
           "id": "sma-kontrast",
@@ -481,7 +507,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Øk tekststørrelsen til 200% i nettleseren (Ctrl/Cmd + +)\n2. Sjekk at all tekst fortsatt er lesbar og ikke kuttet av\n3. Verifiser at ingen innhold forsvinner utenfor skjermen\n4. Test at navigasjon og funksjonalitet fortsatt fungerer\n5. Sjekk at tekst ikke overlapper eller blir uleselig\n6. Verifiser at siden ikke krever horisontal scrolling for å lese tekst"
         },
         {
           "id": "zoom-400",
@@ -573,7 +599,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Fyll ut skjemaer med feilaktig informasjon\n2. Sjekk at feilmeldinger vises nær det feilaktige feltet\n3. Verifiser at feilmeldingen forklarer hva som er feil\n4. Test at feilmeldingen er knyttet til riktig felt (aria-describedby)\n5. Sjekk at feilmeldingen er synlig og har god kontrast\n6. Verifiser at feilmeldingen blir lest opp av skjermleser"
         },
         {
           "id": "feilmelding-forslag",
@@ -691,7 +717,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser alle elementer som bruker farge for å formidle informasjon\n2. Sjekk at røde feilmeldinger også har tekst eller ikon\n3. Verifiser at lenker ikke bare skiller seg ut med farge\n4. Test at statusindikatorer har tekst eller symbol i tillegg til farge\n5. Sjekk at obligatoriske felt er markert med mer enn bare farge\n6. Verifiser at informasjon er forståelig uten farge"
         },
         {
           "id": "viktige-bilder",
@@ -704,7 +730,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser alle bilder på siden for tekstinnhold\n2. Sjekk at viktig tekst ikke bare presenteres som bilde\n3. Verifiser at overskrifter og brødtekst er kodet som HTML-tekst\n4. Test at logoer med tekst har alternative tekster\n5. Sjekk at knapper med tekst ikke bare er bilder\n6. Verifiser at all lesbar tekst kan markeres og kopieres"
         },
         {
           "id": "ekstra-innhold",
@@ -717,7 +743,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Identifiser alle elementer som viser ekstra innhold ved hover/fokus\n2. Test at tooltips og popup-vinduer kan lukkes\n3. Verifiser at ekstra innhold ikke skjuler annet viktig innhold\n4. Sjekk at brukeren kan navigere til og interagere med ekstra innhold\n5. Test at ekstra innhold ikke automatisk forsvinner for tidlig\n6. Verifiser at ekstra innhold kan kontrolleres med tastatur"
         },
         {
           "id": "blinking",
@@ -730,7 +756,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser siden for blinkende eller flimrende innhold\n2. Sjekk at ingen elementer blinker mer enn 3 ganger per sekund\n3. Verifiser at animasjoner ikke skaper flimring\n4. Test at videoer og GIF-er ikke har problematisk flimring\n5. Sjekk at CSS-animasjoner ikke skaper epileptiske anfall\n6. Verifiser at brukeren kan deaktivere animasjoner"
         },
         {
           "id": "sidetitler",
@@ -743,7 +769,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser title-elementet i head-seksjonen på hver side\n2. Sjekk at tittelen beskriver sidens innhold og formål\n3. Verifiser at tittelen er unik for hver side\n4. Test at tittelen vises korrekt i nettleserens fanetittel\n5. Sjekk at tittelen ikke er generisk (som \"Hjem\" eller \"Side\")\n6. Verifiser at tittelen fungerer med skjermleser og bokmerker"
         },
         {
           "id": "sprak-deler",
@@ -756,7 +782,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Identifiser alle deler av innholdet som er på andre språk\n2. Sjekk at lang-attributtet er satt på elementer med fremmedspråk\n3. Verifiser at språkkoden er korrekt (f.eks. lang=\"en\" for engelsk)\n4. Test at skjermleser leser opp fremmedspråk med riktig uttale\n5. Sjekk at språkendringer er markert på riktig nivå (span, div, etc.)\n6. Verifiser at språkkoden følger ISO 639-1 standard"
         },
         {
           "id": "konsekvent-funksjonalitet",
@@ -769,7 +795,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Naviger mellom ulike sider på nettstedet\n2. Sjekk at navigasjonsmeny har samme plassering og utseende\n3. Verifiser at knapper med samme funksjon har samme navn\n4. Test at ikoner og symboler brukes konsistent\n5. Sjekk at skjemaelementer har samme struktur og navn\n6. Verifiser at funksjonalitet som \"Søk\" eller \"Kontakt\" er identisk på alle sider"
         },
         {
           "id": "kodedeling",
@@ -782,7 +808,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Bruk W3C HTML Validator til å sjekke HTML-koden\n2. Sjekk at alle HTML-elementer er korrekt åpnet og lukket\n3. Verifiser at alle attributter har gyldige verdier\n4. Test at ID-er er unike på hver side\n5. Sjekk at alle elementer har riktig nesting\n6. Verifiser at koden ikke inneholder alvorlige syntaksfeil"
         },
         {
           "id": "navn-rolle",
@@ -795,7 +821,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser alle interaktive komponenter på siden\n2. Sjekk at hver komponent har et tilgjengelig navn (aria-label, aria-labelledby)\n3. Verifiser at komponenter har riktig rolle (role-attributt)\n4. Test at skjemaelementer har riktig type og tilstand\n5. Sjekk at custom komponenter har korrekte ARIA-attributter\n6. Verifiser at komponenter fungerer med skjermleser"
         },
         {
           "id": "relasjoner",
@@ -808,7 +834,7 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Inspiser HTML-strukturen for semantiske elementer\n2. Sjekk at overskrifter bruker riktige h1-h6 elementer\n3. Verifiser at lister bruker ul, ol eller dl elementer\n4. Test at tabeller har riktig struktur med th og td\n5. Sjekk at landmerker som header, nav, main, footer brukes\n6. Verifiser at relasjoner mellom elementer er korrekt kodet"
         },
         {
           "id": "flere-mater",
@@ -821,11 +847,11 @@
               "url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways"
             }
           ],
-          "howTo": ""
+          "howTo": "1. Identifiser alle tilgjengelige navigasjonsmetoder på siden\n2. Sjekk at det finnes minst to av følgende:\n   - Hovednavigasjonsmeny\n   - Søkefunksjon\n   - Sitemap\n   - Breadcrumbs\n   - Relaterte lenker\n3. Verifiser at alle navigasjonsmetoder fungerer\n4. Test at navigasjonen er konsistent på tvers av sider\n5. Sjekk at navigasjonsmetodene er tilgjengelige for alle brukere\n6. Verifiser at navigasjonen fungerer med tastatur og skjermleser"
         }
       ]
     }
   ],
   "createdAt": "2024-04-14T12:00:00Z",
-  "updatedAt": "2024-04-14T12:00:00Z"
+  "updatedAt": "2024-12-19T10:00:00Z"
 } 
