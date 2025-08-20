@@ -17,10 +17,11 @@ import './index.css'
 import HomePage from './pages/HomePage'
 import CategoryPage from './pages/CategoryPage'
 import SummaryPage from './pages/SummaryPage'
+import TestPage from './pages/TestPage'
 
 function App() {
   useEffect(() => {
-    document.body.setAttribute('data-color-scheme', 'dark')
+    document.body.setAttribute('data-color-scheme', 'auto')
     document.body.setAttribute('data-typography', 'primary')
     document.body.setAttribute('data-color', 'neutral')
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:id" element={<CategoryPage />} />
           <Route path="/summary" element={<SummaryPage />} />
+          <Route path="/test" element={<TestPage />} />
         </Routes>
       </div>
     </Router>

@@ -22,3 +22,5 @@ Test at språkendringer er korrekt markert i koden
 5. Sjekk at språkendringer er markert på riktig nivå (span, div, etc.)
 6. Verifiser at språkkoden følger ISO 639-1 standard
 
+
+
