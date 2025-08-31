@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import type { Checklist, Category, ChecklistItem } from '../types/checklist'
 
 export interface ProductFeatures {
@@ -40,6 +41,7 @@ interface TestConfigStore {
   resetConfiguration: () => void
   applyFilters: (checklist: Checklist) => void
   getFilteredChecklist: (checklist: Checklist) => Checklist
+  reapplyFilters: (checklist: Checklist) => void
 }
 
 const defaultProductFeatures: ProductFeatures = {
@@ -132,7 +134,9 @@ const defaultTestProfiles: TestProfile[] = [
   }
 ]
 
-export const useTestConfigStore = create<TestConfigStore>((set, get) => ({
+export const useTestConfigStore = create<TestConfigStore>()(
+  persist(
+    (set, get) => ({
   configuration: {
     productFeatures: defaultProductFeatures,
     selectedProfile: null,
@@ -142,6 +146,7 @@ export const useTestConfigStore = create<TestConfigStore>((set, get) => ({
   availableProfiles: defaultTestProfiles,
   
   updateProductFeatures: (features: Partial<ProductFeatures>) => {
+    console.log('updateProductFeatures called with:', features)
     set(state => ({
       configuration: {
         ...state.configuration,
@@ -154,7 +159,9 @@ export const useTestConfigStore = create<TestConfigStore>((set, get) => ({
   },
   
   selectProfile: (profileId: string) => {
+    console.log('selectProfile called with:', profileId)
     const profile = get().availableProfiles.find(p => p.id === profileId)
+    console.log('Found profile:', profile)
     set(state => ({
       configuration: {
         ...state.configuration,
@@ -255,5 +262,27 @@ export const useTestConfigStore = create<TestConfigStore>((set, get) => ({
       ...checklist,
       categories: filteredCategories
     }
+  },
+  
+  reapplyFilters: (checklist: Checklist) => {
+    const { configuration } = get()
+    const { productFeatures, selectedProfile } = configuration
+    
+    // Hvis vi har lagret state, reapply filters
+    if (selectedProfile || Object.values(productFeatures).some(value => value)) {
+      console.log('Reapplying filters from persisted state')
+      get().applyFilters(checklist)
+    }
   }
-}))
+}),
+    {
+      name: 'test-config-storage',
+      partialize: (state) => ({
+        configuration: {
+          productFeatures: state.configuration.productFeatures,
+          selectedProfile: state.configuration.selectedProfile
+        }
+      })
+    }
+  )
+)

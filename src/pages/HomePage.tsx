@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Heading, Button, Card } from '@digdir/designsystemet-react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/new-homepage.css'
 import { ProductConfigurator } from '../components/ui/ProductConfigurator'
 import { TestProfileSelector } from '../components/ui/TestProfileSelector'
-import { FilterSummary } from '../components/ui/FilterSummary'
+
 import { MarkdownContent } from '../components/ui/MarkdownContent'
 import { useTestStore } from '../stores/testStore'
 import { useChecklistStore } from '../stores/checklistStore'
@@ -14,27 +14,26 @@ function HomePage() {
   const navigate = useNavigate()
   const { startNewSession, results } = useTestStore()
   const { checklist, loading, error, loadChecklist } = useChecklistStore()
-  const { getFilteredChecklist } = useTestConfigStore()
+  const { selectProfile, availableProfiles } = useTestConfigStore()
+  const [step, setStep] = useState<'initial' | 'full-test' | 'component-test'>('initial')
 
   useEffect(() => {
     loadChecklist()
   }, [loadChecklist])
 
-  const handleStartTest = () => {
-    console.log('handleStartTest called')
-    if (checklist) {
-      console.log('Checklist exists, getting filtered checklist')
-      const filteredChecklist = getFilteredChecklist(checklist)
-      console.log('Filtered checklist:', filteredChecklist)
-      startNewSession(filteredChecklist)
-      console.log('startNewSession called')
-      
-      // Naviger til kategorioversikt med filtrerte kategorier
-      console.log('Navigating to category overview with filtered categories')
-      navigate('/overview')
-    } else {
-      console.log('No checklist available')
-    }
+
+
+  const handleFullTest = () => {
+    selectProfile('full-test')
+    setStep('full-test')
+  }
+
+  const handleComponentTest = () => {
+    setStep('component-test')
+  }
+
+  const handleBack = () => {
+    setStep('initial')
   }
 
   if (loading) {
@@ -71,38 +70,93 @@ function HomePage() {
     )
   }
 
+  const renderStep = () => {
+    switch (step) {
+      case 'initial':
+        return (
+          <div className="wizard-step">
+            <div className="hero-section">
+              <Heading level={1} data-size="xl">
+                {checklist.title}
+              </Heading>
+              <div className="hero-description">
+                <MarkdownContent size="large">{checklist.description}</MarkdownContent>
+              </div>
+            </div>
+
+            <div className="choice-grid">
+              <Card className="choice-card" data-color="neutral">
+                <Card.Block>
+                  <Heading level={2} data-size="lg">Full tilgjengelighetstest</Heading>
+                  <p>Test alle WCAG-krav for hele løsningen din.</p>
+                  <Button onClick={handleFullTest} className="choice-button">
+                    Velg full test
+                  </Button>
+                </Card.Block>
+              </Card>
+
+              <Card className="choice-card" data-color="neutral">
+                <Card.Block>
+                  <Heading level={2} data-size="lg">Test enkelt komponenter</Heading>
+                  <p>Fokusert testing av spesifikke komponenter eller funksjoner.</p>
+                  <Button onClick={handleComponentTest} className="choice-button">
+                    Velg komponent-test
+                  </Button>
+                </Card.Block>
+              </Card>
+            </div>
+          </div>
+        )
+
+      case 'full-test':
+        return (
+          <div className="wizard-step">
+            <div className="step-header">
+              <Button onClick={handleBack} variant="tertiary">
+                ← Tilbake
+              </Button>
+              <Heading level={1} data-size="xl">Full tilgjengelighetstest</Heading>
+            </div>
+
+            <div className="configuration-grid">
+              <Card className="config-card" data-color="neutral">
+                <Card.Block>
+                  <ProductConfigurator />
+                </Card.Block>
+              </Card>
+            </div>
+          </div>
+        )
+
+      case 'component-test':
+        return (
+          <div className="wizard-step">
+            <div className="step-header">
+              <Button onClick={handleBack} variant="tertiary">
+                ← Tilbake
+              </Button>
+              <Heading level={1} data-size="xl">Test enkelt komponenter</Heading>
+            </div>
+
+            <div className="configuration-grid">
+              <Card className="config-card" data-color="neutral">
+                <Card.Block>
+                  <TestProfileSelector 
+                    profiles={availableProfiles.filter(p => p.id !== 'full-test')}
+                  />
+                </Card.Block>
+              </Card>
+            </div>
+          </div>
+        )
+    }
+  }
+
   return (
     <div className="container">
-      <div className="hero-section">
-        <Heading level={1} data-size="xl">
-          {checklist.title}
-        </Heading>
-        <div className="hero-description">
-          <MarkdownContent size="large">{checklist.description}</MarkdownContent>
-        </div>
-      </div>
+      {renderStep()}
 
-      <div className="configuration-grid">
-        <Card className="config-card" data-color="neutral">
-          <Card.Block>
-            <ProductConfigurator />
-          </Card.Block>
-        </Card>
-
-        <Card className="config-card" data-color="neutral">
-          <Card.Block>
-            <TestProfileSelector />
-          </Card.Block>
-        </Card>
-
-        <Card className="config-card summary-card" data-color="accent">
-          <Card.Block>
-            <FilterSummary onStartTest={handleStartTest} />
-          </Card.Block>
-        </Card>
-      </div>
-
-      {results.length > 0 && (
+      {results.length > 0 && step === 'initial' && (
         <div className="previous-results" data-color="neutral">
           <Heading level={2} data-size="lg">
             Tidligere resultater

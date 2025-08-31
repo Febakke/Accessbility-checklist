@@ -1,21 +1,44 @@
-import { Heading, Checkbox, Fieldset } from '@digdir/designsystemet-react'
+import React, { useEffect } from 'react'
+import { Heading, Checkbox, Fieldset, Button } from '@digdir/designsystemet-react'
 import { useTestConfigStore, type ProductFeatures } from '../../stores/testConfigStore'
+import { useChecklistStore } from '../../stores/checklistStore'
+import { useTestStore } from '../../stores/testStore'
+import { useNavigate } from 'react-router-dom'
 
 interface ProductConfiguratorProps {
   className?: string
 }
 
 export function ProductConfigurator({ className }: ProductConfiguratorProps) {
-  const { configuration, updateProductFeatures } = useTestConfigStore()
+  const navigate = useNavigate()
+  const { configuration, updateProductFeatures, getFilteredChecklist, applyFilters } = useTestConfigStore()
   const { productFeatures } = configuration
+  const { checklist } = useChecklistStore()
+  const { startNewSession } = useTestStore()
+
+  // Anvend filtre når produktets egenskaper endres
+  useEffect(() => {
+    if (checklist) {
+      console.log('ProductConfigurator: Applying filters due to product features change')
+      applyFilters(checklist)
+    }
+  }, [checklist, productFeatures, applyFilters])
 
   const handleFeatureChange = (feature: keyof ProductFeatures, value: boolean) => {
     updateProductFeatures({ [feature]: value })
   }
 
+  const handleStartTest = () => {
+    if (checklist) {
+      const filteredChecklist = getFilteredChecklist(checklist)
+      startNewSession(filteredChecklist)
+      navigate('/overview')
+    }
+  }
+
   return (
     <div className={className}>
-      <Heading level={2} data-size="large">
+      <Heading level={2} data-size="lg">
         Hva inneholder produktet ditt?
       </Heading>
       
@@ -86,6 +109,15 @@ export function ProductConfigurator({ className }: ProductConfiguratorProps) {
           />
         </div>
       </Fieldset>
+      
+      <div className="start-test-section">
+        <Button 
+          onClick={handleStartTest}
+          className="start-test-button"
+        >
+          Start test
+        </Button>
+      </div>
     </div>
   )
 }

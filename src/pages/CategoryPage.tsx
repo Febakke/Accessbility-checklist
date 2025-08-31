@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import type { Category } from '../types/checklist'
 import { TestCard } from '../components/ui/TestCard'
@@ -11,7 +12,14 @@ export default function CategoryPage() {
   const navigate = useNavigate()
   const { results } = useTestStore()
   const { checklist, loading, error } = useChecklistStore()
-  const { configuration } = useTestConfigStore()
+  const { configuration, reapplyFilters } = useTestConfigStore()
+
+  // Reapply filters når checklist lastes
+  useEffect(() => {
+    if (checklist) {
+      reapplyFilters(checklist)
+    }
+  }, [checklist, reapplyFilters])
   
   // Bruk filtrert checklist hvis tilgjengelig
   const displayChecklist = configuration.filteredCategories.length > 0 
@@ -42,12 +50,13 @@ export default function CategoryPage() {
 
   return (
     <div className="container">
-      <Link  
-        href="/overview"
+      <Button 
+        onClick={() => navigate('/overview')}
+        variant="tertiary"
         className="backlink"
       >
-        Tilbake til oversikt
-      </Link>
+        ← Tilbake til oversikt
+      </Button>
       
       <Heading data-size="xl" className="mb-4">{category.title}</Heading>
       <Paragraph className="categorypage-description">{category.description}</Paragraph>

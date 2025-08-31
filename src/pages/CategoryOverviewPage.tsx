@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Heading, Button } from '@digdir/designsystemet-react'
 import { CategoryCard } from '../components/ui/CategoryCard'
 import { MarkdownContent } from '../components/ui/MarkdownContent'
@@ -7,13 +8,21 @@ import { useChecklistStore } from '../stores/checklistStore'
 import { useTestConfigStore } from '../stores/testConfigStore'
 
 function CategoryOverviewPage() {
+  const navigate = useNavigate()
   const { startNewSession, results } = useTestStore()
   const { checklist, loading, error, loadChecklist } = useChecklistStore()
-  const { getFilteredChecklist, configuration } = useTestConfigStore()
+  const { getFilteredChecklist, configuration, reapplyFilters } = useTestConfigStore()
 
   useEffect(() => {
     loadChecklist()
   }, [loadChecklist])
+
+  // Reapply filters når checklist lastes
+  useEffect(() => {
+    if (checklist) {
+      reapplyFilters(checklist)
+    }
+  }, [checklist, reapplyFilters])
 
   if (loading) {
     return (
@@ -64,9 +73,17 @@ function CategoryOverviewPage() {
 
   return (
     <div className="container">
-      <Heading level={1} data-size="xl">
-        {displayChecklist?.title}
-      </Heading>
+      <div className="page-header">
+        <Button 
+          onClick={() => navigate('/')}
+          variant="tertiary"
+        >
+          ← Tilbake til forsiden
+        </Button>
+        <Heading level={1} data-size="xl">
+          {displayChecklist?.title}
+        </Heading>
+      </div>
       <div className="homepage-description">
         <MarkdownContent size="large">{displayChecklist?.description}</MarkdownContent>
       </div>
