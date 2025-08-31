@@ -19,6 +19,7 @@ export interface TestProfile {
   name: string
   description: string
   categoryFilters: string[]
+  testFilters: string[] // Spesifikke test-IDer som skal inkluderes
   featureRequirements: Partial<ProductFeatures>
 }
 
@@ -60,6 +61,7 @@ const defaultTestProfiles: TestProfile[] = [
     name: 'Full tilgjengelighetstest',
     description: 'Komplett test av alle WCAG-krav',
     categoryFilters: [],
+    testFilters: [], // Alle tester
     featureRequirements: {}
   },
   {
@@ -67,6 +69,13 @@ const defaultTestProfiles: TestProfile[] = [
     name: 'Tabell-test',
     description: 'Spesialisert test for tabeller og datapresentasjon',
     categoryFilters: ['manual', 'screenreader'],
+    testFilters: [
+      'relasjoner', // Semantisk beskrivelse av seksjoner
+      'navn-rolle', // Komponenter har navn og rolle
+      'overskrifter-landmerker', // Overskrifter og landmerker
+      'rekkefolge-innhold', // Rekkefølge på innholdet
+      'viktige-bilder' // Ingen bilder av viktige tekster
+    ],
     featureRequirements: { hasTables: true }
   },
   {
@@ -74,6 +83,18 @@ const defaultTestProfiles: TestProfile[] = [
     name: 'Skjema-test',
     description: 'Test av skjemaløsninger og validering',
     categoryFilters: ['forms', 'keyboard', 'screenreader'],
+    testFilters: [
+      'standardformat',
+      'feilmelding-identifikasjon',
+      'feilmelding-forslag',
+      'feilmelding-juridisk',
+      'skjemaelement-instruksjoner',
+      'obligatoriske-felt',
+      'tastatur-funksjonalitet',
+      'input-ledetekster',
+      'overskrifter-landmerker',
+      'tilgjengelig-navn'
+    ],
     featureRequirements: { hasForms: true }
   },
   {
@@ -81,6 +102,16 @@ const defaultTestProfiles: TestProfile[] = [
     name: 'Media-test',
     description: 'Test av video, lyd og multimedia-innhold',
     categoryFilters: ['media', 'manual'],
+    testFilters: [
+      'video-tekstalternativ',
+      'video-uten-lyd',
+      'video-teksting',
+      'lyd-kontroll',
+      'pause-stopp',
+      'video-synstolking',
+      'ingen-auto-oppdatering',
+      'ingen-auto-refresh'
+    ],
     featureRequirements: { hasVideo: true, hasAudio: true }
   },
   {
@@ -88,6 +119,15 @@ const defaultTestProfiles: TestProfile[] = [
     name: 'Mobil-test',
     description: 'Test av mobilvisning og touch-interaksjoner',
     categoryFilters: ['mobile', 'pointer', 'zoom'],
+    testFilters: [
+      'visningstilpasning',
+      'bevegelsesstyring',
+      'enkel-pekerinput',
+      'forhindre-feilaktig-input',
+      'zoom-200',
+      'zoom-400',
+      'tekstavstand'
+    ],
     featureRequirements: { hasMobileVersion: true }
   }
 ]
@@ -169,10 +209,15 @@ export const useTestConfigStore = create<TestConfigStore>((set, get) => ({
       }
     })
     
-    // Filtrer tester basert på produktets egenskaper
+    // Filtrer tester basert på profil og produktets egenskaper
     const filteredItems = filteredCategories.flatMap(category => 
       category.items.filter(item => {
-        // Filtrer basert på produktets egenskaper
+        // Hvis profil har spesifikke testfiltre, bruk disse
+        if (selectedProfile && selectedProfile.testFilters.length > 0) {
+          return selectedProfile.testFilters.includes(item.id)
+        }
+        
+        // Ellers filtrer basert på produktets egenskaper
         if (item.id.includes('video') && !productFeatures.hasVideo) return false
         if (item.id.includes('audio') && !productFeatures.hasAudio) return false
         if (item.id.includes('form') && !productFeatures.hasForms) return false

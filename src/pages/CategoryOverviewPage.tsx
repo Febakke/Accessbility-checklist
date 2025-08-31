@@ -51,7 +51,15 @@ function CategoryOverviewPage() {
 
   // Bruk filtrert checklist hvis tilgjengelig, ellers bruk full checklist
   const displayChecklist = configuration.filteredCategories.length > 0 
-    ? { ...checklist, categories: configuration.filteredCategories }
+    ? { 
+        ...checklist, 
+        categories: configuration.filteredCategories.map(category => ({
+          ...category,
+          items: category.items.filter(item => 
+            configuration.filteredItems.some(filteredItem => filteredItem.id === item.id)
+          )
+        }))
+      }
     : checklist
 
   return (
@@ -71,7 +79,7 @@ function CategoryOverviewPage() {
           borderRadius: '0.5rem',
           borderLeft: '4px solid var(--ds-color-accent-border-default)'
         }}>
-          <strong>Filtrerte kategorier:</strong> Viser {configuration.filteredCategories.length} av {checklist?.categories.length} kategorier basert på dine valg.
+          <strong>Filtrerte tester:</strong> Viser {configuration.filteredItems.length} relevante tester fra {configuration.filteredCategories.length} kategorier basert på din valgte testprofil.
         </div>
       )}
       
