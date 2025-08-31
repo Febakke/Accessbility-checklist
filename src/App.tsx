@@ -15,6 +15,7 @@ import '@fontsource/inter/600.css'
 import './index.css'
 
 import HomePage from './pages/HomePage'
+import CategoryOverviewPage from './pages/CategoryOverviewPage'
 import CategoryPage from './pages/CategoryPage'
 import SummaryPage from './pages/SummaryPage'
 import TestPage from './pages/TestPage'
@@ -37,6 +38,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/overview" element={<CategoryOverviewPage />} />
           <Route path="/category/:id" element={<CategoryPage />} />
           <Route path="/summary" element={<SummaryPage />} />
           <Route path="/test" element={<TestPage />} />

@@ -1,13 +1,14 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { TestResult, TestSession } from '../types/checklist'
+import type { TestResult, TestSession, Checklist } from '../types/checklist'
 
 interface TestStore {
   currentSession: TestSession | null
   results: TestResult[]
+  currentChecklist: Checklist | null
   
   // Actions
-  startNewSession: () => void
+  startNewSession: (checklist?: Checklist) => void
   saveTestResult: (testId: string, status: 'no-issues' | 'found-issues', description?: string) => void
   getTestResult: (testId: string) => TestResult | undefined
   clearSession: () => void
@@ -18,8 +19,10 @@ export const useTestStore = create<TestStore>()(
     (set, get) => ({
       currentSession: null,
       results: [],
+      currentChecklist: null,
       
-      startNewSession: () => {
+      startNewSession: (checklist?: Checklist) => {
+        console.log('testStore.startNewSession called with:', checklist)
         const sessionId = `session-${Date.now()}`
         const newSession: TestSession = {
           id: sessionId,
@@ -27,10 +30,13 @@ export const useTestStore = create<TestStore>()(
           results: []
         }
         
+        console.log('Creating new session:', newSession)
         set({
           currentSession: newSession,
-          results: []
+          results: [],
+          currentChecklist: checklist || null
         })
+        console.log('Session created successfully')
       },
       
       saveTestResult: (testId: string, status: 'no-issues' | 'found-issues', description?: string) => {
@@ -64,7 +70,8 @@ export const useTestStore = create<TestStore>()(
       clearSession: () => {
         set({
           currentSession: null,
-          results: []
+          results: [],
+          currentChecklist: null
         })
       }
     }),

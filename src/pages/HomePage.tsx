@@ -1,17 +1,41 @@
-import { useEffect } from 'react'
-import { Heading, Button } from '@digdir/designsystemet-react'
-import { CategoryCard } from '../components/ui/CategoryCard'
+import React, { useEffect } from 'react'
+import { Heading, Button, Card } from '@digdir/designsystemet-react'
+import { useNavigate } from 'react-router-dom'
+import '../styles/new-homepage.css'
+import { ProductConfigurator } from '../components/ui/ProductConfigurator'
+import { TestProfileSelector } from '../components/ui/TestProfileSelector'
+import { FilterSummary } from '../components/ui/FilterSummary'
 import { MarkdownContent } from '../components/ui/MarkdownContent'
 import { useTestStore } from '../stores/testStore'
 import { useChecklistStore } from '../stores/checklistStore'
+import { useTestConfigStore } from '../stores/testConfigStore'
 
 function HomePage() {
+  const navigate = useNavigate()
   const { startNewSession, results } = useTestStore()
   const { checklist, loading, error, loadChecklist } = useChecklistStore()
+  const { getFilteredChecklist } = useTestConfigStore()
 
   useEffect(() => {
     loadChecklist()
   }, [loadChecklist])
+
+  const handleStartTest = () => {
+    console.log('handleStartTest called')
+    if (checklist) {
+      console.log('Checklist exists, getting filtered checklist')
+      const filteredChecklist = getFilteredChecklist(checklist)
+      console.log('Filtered checklist:', filteredChecklist)
+      startNewSession(filteredChecklist)
+      console.log('startNewSession called')
+      
+      // Naviger til kategorioversikt med filtrerte kategorier
+      console.log('Navigating to category overview with filtered categories')
+      navigate('/overview')
+    } else {
+      console.log('No checklist available')
+    }
+  }
 
   if (loading) {
     return (
@@ -49,22 +73,42 @@ function HomePage() {
 
   return (
     <div className="container">
-      <Heading level={1} data-size="xl">
-        {checklist.title}
-      </Heading>
-      <div className="homepage-description">
-        <MarkdownContent size="large">{checklist.description}</MarkdownContent>
+      <div className="hero-section">
+        <Heading level={1} data-size="xl">
+          {checklist.title}
+        </Heading>
+        <div className="hero-description">
+          <MarkdownContent size="large">{checklist.description}</MarkdownContent>
+        </div>
       </div>
-      
-      <div className="grid">
-        {checklist.categories.map((category) => (
-          <CategoryCard key={category.id} category={category} />
-        ))}
+
+      <div className="configuration-grid">
+        <Card className="config-card" data-color="neutral">
+          <Card.Block>
+            <ProductConfigurator />
+          </Card.Block>
+        </Card>
+
+        <Card className="config-card" data-color="neutral">
+          <Card.Block>
+            <TestProfileSelector />
+          </Card.Block>
+        </Card>
+
+        <Card className="config-card summary-card" data-color="accent">
+          <Card.Block>
+            <FilterSummary onStartTest={handleStartTest} />
+          </Card.Block>
+        </Card>
       </div>
-      
+
       {results.length > 0 && (
-        <div className="homepage-actions">
-          <Button onClick={startNewSession}>
+        <div className="previous-results" data-color="neutral">
+          <Heading level={2} data-size="lg">
+            Tidligere resultater
+          </Heading>
+          <p>Du har {results.length} tidligere testsesjoner.</p>
+          <Button onClick={() => startNewSession(checklist)}>
             Start ny testsesjon
           </Button>
         </div>
@@ -73,4 +117,4 @@ function HomePage() {
   )
 }
 
-export default HomePage 
+export default HomePage

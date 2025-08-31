@@ -1,0 +1,140 @@
+/* Ny forside styling */
+.hero-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.hero-description {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.configuration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.config-card {
+  min-height: 400px;
+}
+
+.summary-card {
+  grid-column: 1 / -1;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-option {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-option:hover {
+  background-color: var(--ds-color-surface-hover);
+  border-color: var(--ds-color-border-default);
+}
+
+.profile-option[data-state="checked"] {
+  background-color: var(--ds-color-surface-tinted);
+  border-color: var(--ds-color-border-default);
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.profile-description {
+  color: var(--ds-color-text-subtle);
+  font-size: 0.9rem;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selected-profile {
+  padding: 1rem;
+  background-color: var(--ds-color-surface-tinted);
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--ds-color-border-default);
+}
+
+.active-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.no-features {
+  color: var(--ds-color-text-subtle);
+  font-style: italic;
+}
+
+.test-stats {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: var(--ds-color-background-tinted);
+  border-radius: 0.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.start-test-button {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.previous-results {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--ds-color-background-tinted);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .configuration-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .test-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
